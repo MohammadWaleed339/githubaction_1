@@ -37,7 +37,7 @@ jobs:
         pytest
 
 build-and-publish:
-    needs: build-and-test
+    needs: test
     runs-on: ubuntu-latest
 
     steps:
@@ -52,7 +52,7 @@ build-and-publish:
         username: ${{secrets.DOCKER_USERNAME}}
         password: ${{secrets.DOCKER_PASSWORD}}
 
-    - name: Build and puch Docker image
+    - name: Build and push Docker image
       uses: docker/build-push-action@v4
       with: 
         context: .
